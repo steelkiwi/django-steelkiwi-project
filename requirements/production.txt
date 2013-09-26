@@ -1,9 +1,6 @@
 Django
-coverage
-django-coverage
 psycopg2
 South
-Fabric
 factory-boy
 Unipath
 gunicorn

@@ -116,10 +116,6 @@ LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/profile/'
 
-TEST_RUNNER = 'django_coverage.coverage_runner.CoverageRunner'
-COVERAGE_MODULE_EXCLUDES = ['tests$', 'settings$', 'urls$', 'locale$', 'filldb',
-                            '__init__', 'django', 'migrations']
-
 LOG_FILE = rel('logs', 'app.log')
 
 from .apps import *
