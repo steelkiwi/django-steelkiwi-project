@@ -1,0 +1,5 @@
+-r production.txt
+django-debug-toolbar
+ipython
+ipdb
+Sphinx

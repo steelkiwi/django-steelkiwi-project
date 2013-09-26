@@ -1,0 +1,53 @@
+import sys
+
+from .base import *
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+TESTING = sys.argv[1:2] == ['test']
+
+DOMAIN = 'localhost:8000'
+
+if TESTING:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:'
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': '{{ project_name }}',
+            'USER': '',
+        }
+    }
+
+
+if not TESTING:
+    # debug toolbar settings
+    INTERNAL_IPS = ('127.0.0.1',)
+
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+
+    INSTALLED_APPS += ('debug_toolbar', 'django_coverage')
+
+    DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,
+                            'SHOW_TEMPLATE_CONTEXT': True}
+
+# facebook.com
+FACEBOOK_APP_ID = ''
+FACEBOOK_API_SECRET = ''
+
+# twitter.com
+TWITTER_CONSUMER_KEY = ''
+TWITTER_CONSUMER_SECRET = ''
+
+# google.com
+GOOGLE_OAUTH2_CLIENT_ID = ''
+GOOGLE_OAUTH2_CLIENT_SECRET = ''
+GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True

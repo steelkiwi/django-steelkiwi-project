@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% templatetag openblock %} block title {% templatetag closeblock %}Title{% templatetag openblock %} endblock title {% templatetag closeblock %}</title>
+        {% templatetag openblock %} block extra_head {% templatetag closeblock %}{% templatetag openblock %} endblock extra_head {% templatetag closeblock %}
+    </head>
+    <body>
+    {% templatetag openblock %} block page_title {% templatetag closeblock %}
+    {% templatetag closeblock %} endblock page_title {% templatetag closeblock %}
+
+    {% templatetag openblock %} block content {% templatetag closeblock %}
+    {% templatetag closeblock %} endblock content {% templatetag closeblock %}
+    </body>
+</html>
