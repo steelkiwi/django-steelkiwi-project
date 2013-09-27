@@ -12,7 +12,7 @@ os.sys.path.insert(0, rel('apps'))
 
 DOMAIN = '{{ project_name }}.steelkiwi.com'
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 EMAIL_HOST = ''
