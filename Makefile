@@ -70,4 +70,4 @@ makemessages:
 	python manage.py makemessages -a
 
 mkvirtualenv:
-	@mkvirtualenv $(PROJECT_NAME)
+	@source ~/.bashrc && mkvirtualenv $(PROJECT_NAME)
