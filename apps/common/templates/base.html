@@ -4,14 +4,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% templatetag openblock %} block title {% templatetag closeblock %}Title{% templatetag openblock %} endblock title {% templatetag closeblock %}</title>
-        {% templatetag openblock %} block extra_head {% templatetag closeblock %}{% templatetag openblock %} endblock extra_head {% templatetag closeblock %}
+        <title>{% block title %}Title{% endblock title %}</title>
+        {% block extra_head %}{% endblock extra_head %}
     </head>
     <body>
-    {% templatetag openblock %} block page_title {% templatetag closeblock %}
-    {% templatetag closeblock %} endblock page_title {% templatetag closeblock %}
-
-    {% templatetag openblock %} block content {% templatetag closeblock %}
-    {% templatetag closeblock %} endblock content {% templatetag closeblock %}
+    {% block page_title %}{% endblock page_title %}
+    {% block content %}{% endblock content %}
     </body>
 </html>
