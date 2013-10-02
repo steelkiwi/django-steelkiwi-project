@@ -3,15 +3,17 @@ DB_NAME = "{{ project_name }}"
 
 APPS = "common" "profiles"
 
-default: mkvirtualenv _settings db end
+default: _requirements _settings db end
 
 _settings:
 	@echo "Emitting local development settings module"
 	@cp settings/local.py.example settings/local.py
 
-requirements:
+_requirements:
 	@echo "Installing requirements"
 	@pip install --exists-action=s -r requirements/local.txt
+
+req: _requirements
 
 db: dropdb createdb syncdb migrate loaddata
 
@@ -68,10 +70,3 @@ compilemessages:
 
 makemessages:
 	python manage.py makemessages -a
-
-workon:
-	@source ~/.bashrc && workon $(PROJECT_NAME)
-
-mkvirtualenv:
-	@source ~/.bashrc && mkvirtualenv $(PROJECT_NAME)
-	@make workon && pip install -U pip setuptools && make requirements
