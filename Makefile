@@ -74,6 +74,4 @@ workon:
 
 mkvirtualenv:
 	@source ~/.bashrc && mkvirtualenv $(PROJECT_NAME)
-	@make workon
-	@pip install -U pip setuptools
-	@make requirements
+	@make workon && pip install -U pip setuptools && make requirements
