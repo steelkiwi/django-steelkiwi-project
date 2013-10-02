@@ -3,7 +3,7 @@ DB_NAME = "{{ project_name }}"
 
 APPS = "common" "profiles"
 
-default: _requirements _settings db end
+default: _requirements _settings db test end
 
 _settings:
 	@echo "Emitting local development settings module"
