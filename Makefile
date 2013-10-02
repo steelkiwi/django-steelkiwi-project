@@ -3,7 +3,7 @@ DB_NAME = "{{ project_name }}"
 
 APPS = "common" "profiles"
 
-default: mkvirtualenv _settings requirements db end
+default: mkvirtualenv workon _env_update requirements _settings db end
 
 _settings:
 	@echo "Emitting local development settings module"
@@ -71,3 +71,9 @@ makemessages:
 
 mkvirtualenv:
 	@source ~/.bashrc && mkvirtualenv $(PROJECT_NAME)
+
+workon:
+	@source ~/.bashrc && workon $(PROJECT_NAME)
+
+_env_update:
+	@pip install -U pip setuptools
