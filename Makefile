@@ -3,7 +3,7 @@ DB_NAME = "{{ project_name }}"
 
 APPS = "common" "profiles"
 
-default: _settings requirements db end
+default: mkvirtualenv _settings requirements db end
 
 _settings:
 	@echo "Emitting local development settings module"
@@ -68,3 +68,6 @@ compilemessages:
 
 makemessages:
 	python manage.py makemessages -a
+
+mkvirtualenv:
+	@mkvirtualenv $(PROJECT_NAME)
