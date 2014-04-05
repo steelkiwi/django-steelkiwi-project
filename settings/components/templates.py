@@ -1,4 +1,6 @@
 TEMPLATE_LOADERS = (
+    'django_jinja.loaders.AppLoader',
+    'django_jinja.loaders.FileSystemLoader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )

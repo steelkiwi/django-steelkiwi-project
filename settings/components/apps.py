@@ -10,6 +10,7 @@ INSTALLED_APPS = (
 
     # libs
     'authtools',
+    'django_jinja',
     'south',
     'spurl',
 
