@@ -12,6 +12,6 @@ class ProfilePageTest(TestCase):
 
     def test_profile_page(self):
         url = reverse('profiles:detail')
-        self.client.login(username=self.user.username, password='qwerty')
+        self.client.login(username=self.user.email, password='qwerty')
         resp = self.client.get(url)
-        self.assertContains(resp, self.user.username)
+        self.assertContains(resp, self.user.get_full_name())
