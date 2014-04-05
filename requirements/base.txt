@@ -5,6 +5,7 @@ django-redis-cache
 django-split-settings
 django-spurl
 factory-boy
+fake-factory
 psycopg2
 south
 unipath

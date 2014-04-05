@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-from unipath import Path
-
-PROJECT_PATH = Path()
+PROJECT_NAME = '{{ project_name }}'
+SITE_ID = 1
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -24,7 +22,3 @@ EMAIL_USE_TLS = True
 SECRET_KEY = '{{ secret_key }}'
 ROOT_URLCONF = 'common.urls'
 WSGI_APPLICATION = 'wsgi.application'
-
-
-def rel(*x):
-    return PROJECT_PATH.child(*x)

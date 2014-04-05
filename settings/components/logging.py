@@ -1,5 +1,3 @@
-from .base import rel
-
 LOG_FILE = str(rel('logs', 'app.log'))
 LOG_FILE_SIZE = 1024 * 1024 * 16  # bytes
 LOG_FILE_BACKUP_COUNT = 10

@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from .base import rel
-
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
 )

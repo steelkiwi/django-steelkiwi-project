@@ -1,30 +1,26 @@
+import sys
+
 from split_settings.tools import optional, include
+from unipath import Path
 
-SITE_ID = 1
-PROJECT_NAME = '{{ project_name }}'
+PROJECT_PATH = Path()
 
 
-def export(space=None):
-    if space is None:
-        space = locals()
-        space['__file__'] = __file__
-        space['SITE_ID'] = SITE_ID
-        space['PROJECT_NAME'] = PROJECT_NAME
+def rel(*x):
+    return PROJECT_PATH.child(*x).absolute()
 
-    include(
-        'components/base.py',
-        'components/auth.py',
-        'components/locale.py',
-        'components/static.py',
-        'components/templates.py',
-        'components/db_and_cache.py',
-        'components/middleware.py',
-        'components/apps.py',
-        'components/logging.py',
-        optional('local.py'),
+sys.path.insert(1, str(rel('apps')))
 
-        scope=space
-    )
-    return space
-
-export(locals())
+include(
+    'components/base.py',
+    'components/auth.py',
+    'components/locale.py',
+    'components/static.py',
+    'components/templates.py',
+    'components/db_and_cache.py',
+    'components/middleware.py',
+    'components/apps.py',
+    'components/logging.py',
+    optional('local.py'),
+    scope=locals()
+)

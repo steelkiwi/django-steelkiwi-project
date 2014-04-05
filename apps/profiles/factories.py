@@ -1,8 +1,10 @@
 import factory
+from faker import Factory
+fake = Factory.create()
 
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import User
-from django.contrib.webdesign import lorem_ipsum
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 class UserFactory(factory.DjangoModelFactory):
@@ -12,25 +14,16 @@ class UserFactory(factory.DjangoModelFactory):
     def password(self):
         return make_password('qwerty')
 
-    @factory.sequence
-    def username(n):
-        return '{0}_{1}'.format(lorem_ipsum.words(1, False), n)
-
     @factory.lazy_attribute_sequence
     def email(self, n):
-        return '{}@example.com'.format(self.username, n)
+        return '{}_{}@example.com'.format(fake.last_name(), n)
 
     @factory.lazy_attribute
-    def first_name(self):
-        return lorem_ipsum.words(1, False).capitalize()
-
-    @factory.lazy_attribute
-    def last_name(self):
-        return lorem_ipsum.words(1, False).capitalize()
+    def name(self):
+        return fake.name()
 
 
 class AdminFactory(UserFactory):
-    username = 'admin'
     email = 'admin@example.com'
     password = make_password('admin')
     is_staff = True
