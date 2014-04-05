@@ -1,6 +1,7 @@
 django
 django-authtools
 django-braces
+django-grappelli
 django-redis-cache
 django-split-settings
 django-spurl

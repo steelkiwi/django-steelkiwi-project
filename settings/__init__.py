@@ -21,6 +21,7 @@ include(
     'components/middleware.py',
     'components/apps.py',
     'components/logging.py',
+    'components/libs.py',
     optional('local.py'),
     scope=locals()
 )
