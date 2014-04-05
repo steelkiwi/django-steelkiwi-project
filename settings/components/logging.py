@@ -1,8 +1,8 @@
-try:
-    from .base import LOG_FILE
-except ImportError:
-    LOG_FILE = None
+from .base import rel
 
+LOG_FILE = str(rel('logs', 'app.log'))
+LOG_FILE_SIZE = 1024 * 1024 * 16  # bytes
+LOG_FILE_BACKUP_COUNT = 10
 
 LOGGING = {
     'version': 1,
@@ -32,11 +32,19 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'logfile': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_false'],
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOG_FILE,
+            'maxBytes': LOG_FILE_SIZE,
+            'backupCount': LOG_FILE_BACKUP_COUNT,
+            'formatter': 'standard'}
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['logfile', 'mail_admins'],
             'level': 'ERROR',
             'propagate': True,
         },
@@ -52,13 +60,3 @@ LOGGING = {
         },
     }
 }
-
-if LOG_FILE:
-    LOGGING['handlers']['logfile'] = {'level': 'DEBUG',
-                                      'filters': ['require_debug_false'],
-                                      'class': 'logging.handlers.RotatingFileHandler',
-                                      'filename': LOG_FILE,
-                                      'maxBytes': 50000,
-                                      'backupCount': 2,
-                                      'formatter': 'standard'}
-    LOGGING['loggers']['django.request']['handlers'].append('logfile')

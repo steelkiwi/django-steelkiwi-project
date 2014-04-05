@@ -1,4 +1,4 @@
-DJANGO_APPS = (
+INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -6,17 +6,13 @@ DJANGO_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-)
 
-THIRD_PARTY_APPS = (
-    'gunicorn',
+    # libs
+    'authtools',
     'south',
     'spurl',
-)
 
-PROJECT_APPS = (
+    # apps
     'common',
     'profiles',
 )
-
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS

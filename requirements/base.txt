@@ -1,5 +1,7 @@
 django
+django-authtools
 django-braces
+django-redis-cache
 django-split-settings
 django-spurl
 factory-boy

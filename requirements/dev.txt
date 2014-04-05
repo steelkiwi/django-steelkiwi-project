@@ -3,6 +3,8 @@ coverage
 django-coverage
 django-debug-toolbar
 fabric
+futures
 ipdb
 ipython
 Sphinx
+tornado

@@ -43,6 +43,6 @@ local.py
 *.mo
 
 # Logs
-*.log
+*.log*
 
 *.pid

@@ -1,7 +1,5 @@
 import sys
 
-from .base import *
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -42,16 +40,3 @@ if not TESTING:
 TEST_RUNNER = 'django_coverage.coverage_runner.CoverageRunner'
 COVERAGE_MODULE_EXCLUDES = ['tests$', 'settings$', 'urls$', 'locale$', 'filldb',
                             '__init__', 'django', 'migrations']
-
-# facebook.com
-FACEBOOK_APP_ID = ''
-FACEBOOK_API_SECRET = ''
-
-# twitter.com
-TWITTER_CONSUMER_KEY = ''
-TWITTER_CONSUMER_SECRET = ''
-
-# google.com
-GOOGLE_OAUTH2_CLIENT_ID = ''
-GOOGLE_OAUTH2_CLIENT_SECRET = ''
-GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
