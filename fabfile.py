@@ -17,7 +17,7 @@ env.user = 'webmaster'
 
 @task
 def test():
-    env.hosts = ['{{ project_name }}.pirsipy.com']
+    env.hosts = ['{{ project_name }}.com']
     env.path = '/home/webmaster/apps/{{ project_name }}'
     env.branch = 'master'
     env.db_name = '{{ project_name }}'

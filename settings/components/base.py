@@ -10,7 +10,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DOMAIN = '{{ project_name }}.pirsipy.com'
+DOMAIN = '{{ project_name }}.com'
 ALLOWED_HOSTS = [DOMAIN]
 
 EMAIL_HOST = 'smtp.gmail.com'
