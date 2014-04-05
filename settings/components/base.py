@@ -22,3 +22,5 @@ EMAIL_USE_TLS = True
 SECRET_KEY = '{{ secret_key }}'
 ROOT_URLCONF = 'common.urls'
 WSGI_APPLICATION = 'wsgi.application'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
