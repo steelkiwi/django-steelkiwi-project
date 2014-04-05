@@ -1,8 +1,8 @@
--r production.txt
+-r base.txt
 coverage
 django-coverage
-Fabric
 django-debug-toolbar
-ipython
+fabric
 ipdb
+ipython
 Sphinx

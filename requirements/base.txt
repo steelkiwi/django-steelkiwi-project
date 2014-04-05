@@ -1,0 +1,8 @@
+django
+django-braces
+django-split-settings
+django-spurl
+factory-boy
+psycopg2
+south
+unipath

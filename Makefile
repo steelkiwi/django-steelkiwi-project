@@ -11,7 +11,7 @@ _settings:
 
 _requirements:
 	@echo "Installing requirements"
-	@pip install --exists-action=s -r requirements/local.txt
+	@pip install --exists-action=s -r requirements/dev.txt
 
 req: _requirements
 
