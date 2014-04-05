@@ -9,7 +9,7 @@ class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=_('user'), related_name='profile')
 
     def __unicode__(self):
-        return self.user.username
+        return self.user.get_full_name() or self.user.email
 
 
 @receiver(models.signals.post_save, sender=get_user_model())
