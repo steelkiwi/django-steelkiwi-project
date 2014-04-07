@@ -1,4 +1,5 @@
 django
+django-authtools
 django-braces
 django-grappelli
 django-jinja

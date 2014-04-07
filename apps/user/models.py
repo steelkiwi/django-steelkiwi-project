@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from django.contrib.auth.models import BaseUserManager
@@ -23,7 +23,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), max_length=255, unique=True, db_index=True)
     name = models.CharField(_('name'), max_length=255)
     is_staff = models.BooleanField(_('staff status'), default=False,
@@ -39,7 +39,6 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['name']
 
     class Meta:
-        abstract = True
         ordering = ['name', 'email']
         verbose_name = _('user')
         verbose_name_plural = _('users')

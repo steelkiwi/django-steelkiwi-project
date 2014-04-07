@@ -14,9 +14,9 @@ class UserFactory(factory.DjangoModelFactory):
     def password(self):
         return make_password('qwerty')
 
-    @factory.lazy_attribute_sequence
-    def email(self, n):
-        return '{}_{}@example.com'.format(fake.last_name(), n)
+    @factory.lazy_attribute
+    def email(self):
+        return fake.safe_email()
 
     @factory.lazy_attribute
     def name(self):
