@@ -1,7 +1,7 @@
 PROJECT_NAME = "{{ project_name }}"
 DB_NAME = "{{ project_name }}"
 
-APPS = "common" "profiles"
+APPS = "common" "user"
 
 default: _requirements _settings db collect_static test end
 

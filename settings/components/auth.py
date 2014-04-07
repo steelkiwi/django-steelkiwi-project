@@ -8,4 +8,4 @@ LOGIN_URL = '/signin/'
 LOGIN_ERROR_URL = '/signin/failed/'
 SESSION_COOKIE_NAME = 'sessionid'
 
-AUTH_USER_MODEL = 'authtools.User'
+AUTH_USER_MODEL = 'user.User'

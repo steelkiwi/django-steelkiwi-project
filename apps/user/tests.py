@@ -4,14 +4,14 @@ from django.test import TestCase
 from .factories import UserFactory
 
 
-class ProfilePageTest(TestCase):
+class UserPageTest(TestCase):
 
     def setUp(self):
-        super(ProfilePageTest, self).setUp()
+        super(UserPageTest, self).setUp()
         self.user = UserFactory()
 
     def test_profile_page(self):
-        url = reverse('profiles:detail')
+        url = reverse('user:detail')
         self.client.login(username=self.user.email, password='qwerty')
         resp = self.client.get(url)
         self.assertContains(resp, self.user.get_full_name())

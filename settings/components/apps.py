@@ -9,12 +9,11 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     # libs
-    'authtools',
     'django_jinja',
     'south',
     'spurl',
 
     # apps
     'common',
-    'profiles',
+    'user',
 )

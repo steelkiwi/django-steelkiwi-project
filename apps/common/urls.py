@@ -7,7 +7,7 @@ urlpatterns = patterns(
     'common.views',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^profile/', include('profiles.urls', 'profiles')),
+    url(r'^user/', include('user.urls', 'user')),
     url(r'^$', 'main', name='main'),
 )
 
