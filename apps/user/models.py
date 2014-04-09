@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from django.contrib.auth.models import BaseUserManager
@@ -23,7 +23,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser):
     email = models.EmailField(_('email address'), max_length=255, unique=True, db_index=True)
     name = models.CharField(_('name'), max_length=255)
     is_staff = models.BooleanField(_('staff status'), default=False,
@@ -31,6 +31,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(_('active'), default=True,
                                     help_text=_('Designates whether this user should be treated as '
                                                 'active.  Unselect this instead of deleting accounts.'))
+    is_superuser = models.BooleanField(_('superuser status'), default=False,
+                                       help_text=_('Designates that this user has all permissions without '
+                                                   'explicitly assigning them.'))
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
     objects = UserManager()
@@ -39,9 +42,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['name']
 
     class Meta:
+        db_table = 'user'
         ordering = ['name', 'email']
         verbose_name = _('user')
         verbose_name_plural = _('users')
+
+    def has_module_perms(self, app_label):
+        return True
+
+    def has_perm(self, perm, obj=None):
+        return True
 
     def get_full_name(self):
         return self.name or self.email

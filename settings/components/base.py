@@ -1,5 +1,4 @@
 PROJECT_NAME = '{{ project_name }}'
-SITE_ID = 1
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
