@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import sys
 from dotenv import read_dotenv
-
 read_dotenv()
 
 if __name__ == '__main__':

@@ -24,8 +24,7 @@ atlassian-ide-plugin.xml
 
 # Virtualenv
 env/
-.env/
-#.env
+.env
 
 # Project
 /public/
