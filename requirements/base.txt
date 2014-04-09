@@ -1,6 +1,7 @@
 django
 django-authtools
 django-braces
+django-dotenv
 django-grappelli
 django-jinja
 django-redis-cache

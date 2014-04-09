@@ -6,5 +6,6 @@ fabric
 futures
 ipdb
 ipython
-Sphinx
+pysqlite
+sphinx
 tornado

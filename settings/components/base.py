@@ -9,16 +9,16 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DOMAIN = '{{ project_name }}.com'
+DOMAIN = os.environ['DOMAIN']
 ALLOWED_HOSTS = [DOMAIN]
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_PORT = os.environ['EMAIL_PORT']
+EMAIL_USE_TLS = os.environ['EMAIL_USE_TLS']
 
-SECRET_KEY = '{{ secret_key }}'
+SECRET_KEY = os.environ['SECRET_KEY']
 ROOT_URLCONF = 'common.urls'
 WSGI_APPLICATION = 'wsgi.application'
 

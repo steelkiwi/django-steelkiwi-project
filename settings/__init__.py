@@ -1,4 +1,4 @@
-import sys
+import os
 
 from split_settings.tools import optional, include
 from unipath import Path
@@ -9,7 +9,7 @@ PROJECT_PATH = Path()
 def rel(*x):
     return PROJECT_PATH.child(*x).absolute()
 
-sys.path.insert(1, str(rel('apps')))
+os.sys.path.insert(1, str(rel('apps')))
 
 include(
     'components/base.py',
